@@ -29,11 +29,11 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
   return (
     <aside
       className={cn(
-        "fixed inset-y-0 left-0 z-30 w-64 transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0 bg-card border-r border-border pt-16",
+        "fixed inset-y-0 left-0 z-30 w-64 transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:fixed bg-card border-r border-border",
         isOpen ? "translate-x-0" : "-translate-x-full"
       )}
     >
-      <div className="h-full px-3 py-6 overflow-y-auto">
+      <div className="h-full px-3 py-6 overflow-y-auto pt-20">
         <nav className="space-y-2">
           {navigation.map((item) => {
             const Icon = item.icon;

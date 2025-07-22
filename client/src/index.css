@@ -84,6 +84,24 @@
   .border-warning { border-color: hsl(var(--warning)); }
   .border-info { border-color: hsl(var(--info)); }
 
+  /* Layout utilities */
+  .dashboard-layout {
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  .dashboard-main {
+    flex: 1;
+    padding-top: 4rem; /* 64px header height */
+    padding-left: 0;
+  }
+  
+  @media (min-width: 1024px) {
+    .dashboard-main {
+      padding-left: 16rem; /* 256px sidebar width */
+    }
+  }
+
   .risk-critical {
     background-color: hsl(var(--destructive) / 0.1);
     color: hsl(var(--destructive));

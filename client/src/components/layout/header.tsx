@@ -12,7 +12,7 @@ export default function Header({ onSidebarToggle }: HeaderProps) {
   const { theme, setTheme } = useTheme();
 
   return (
-    <nav className="sticky top-0 z-50 bg-card border-b border-border shadow-sm">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-card border-b border-border shadow-sm">
       <div className="px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
