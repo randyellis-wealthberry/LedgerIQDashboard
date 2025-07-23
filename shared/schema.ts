@@ -14,6 +14,10 @@ export const employees = pgTable("employees", {
   name: text("name").notNull(),
   department: text("department").notNull(),
   email: text("email").notNull(),
+  position: text("position").notNull(),
+  salary: integer("salary").notNull(),
+  hireDate: timestamp("hire_date").notNull().defaultNow(),
+  status: text("status").notNull().default("active"),
   avatar: text("avatar"),
   averageMonthlyOT: decimal("average_monthly_ot", { precision: 5, scale: 2 }).default("0"),
   performanceRating: text("performance_rating").default("Good"),
@@ -40,11 +44,17 @@ export const anomalies = pgTable("anomalies", {
 export const aiInsights = pgTable("ai_insights", {
   id: serial("id").primaryKey(),
   anomalyId: integer("anomaly_id").references(() => anomalies.id).notNull(),
+  title: text("title").notNull(),
+  description: text("description").notNull(),
+  priority: text("priority").notNull().default("medium"), // "high", "medium", "low"
+  status: text("status").notNull().default("pending"), // "pending", "in_progress", "implemented"
+  impact: text("impact").notNull().default("medium"), // "high", "medium", "low"
   rootCause: text("root_cause").notNull(),
   riskAssessment: text("risk_assessment").notNull(),
   recommendedActions: text("recommended_actions").array().notNull(),
   historicalMatches: text("historical_matches").array(),
   confidence: integer("confidence").notNull(), // 0-100
+  generatedAt: timestamp("generated_at").notNull().defaultNow(),
 });
 
 export const insertUserSchema = createInsertSchema(users).pick({

@@ -7,6 +7,7 @@ import {
   Settings, 
   CheckCircle 
 } from "lucide-react";
+import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
@@ -17,15 +18,17 @@ interface SidebarProps {
 }
 
 const navigation = [
-  { name: "Dashboard", href: "#", icon: BarChart3, current: true },
-  { name: "Anomalies", href: "#", icon: AlertTriangle, current: false },
-  { name: "AI Insights", href: "#", icon: Bot, current: false },
-  { name: "Employees", href: "#", icon: Users, current: false },
-  { name: "Reports", href: "#", icon: FileText, current: false },
-  { name: "Settings", href: "#", icon: Settings, current: false },
+  { name: "Dashboard", href: "/", icon: BarChart3 },
+  { name: "Anomalies", href: "/anomalies", icon: AlertTriangle },
+  { name: "AI Insights", href: "/ai-insights", icon: Bot },
+  { name: "Employees", href: "/employees", icon: Users },
+  { name: "Reports", href: "/reports", icon: FileText },
+  { name: "Settings", href: "/settings", icon: Settings },
 ];
 
 export default function Sidebar({ isOpen, onClose }: SidebarProps) {
+  const [location] = useLocation();
+  
   return (
     <aside
       className={cn(
@@ -37,19 +40,21 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
         <nav className="space-y-2">
           {navigation.map((item) => {
             const Icon = item.icon;
+            const isActive = location === item.href;
             return (
-              <Button
-                key={item.name}
-                variant={item.current ? "secondary" : "ghost"}
-                className={cn(
-                  "w-full justify-start",
-                  item.current && "bg-muted"
-                )}
-                onClick={() => !item.current && onClose()}
-              >
-                <Icon className="mr-3 h-4 w-4" />
-                {item.name}
-              </Button>
+              <Link key={item.name} href={item.href}>
+                <Button
+                  variant={isActive ? "secondary" : "ghost"}
+                  className={cn(
+                    "w-full justify-start",
+                    isActive && "bg-muted"
+                  )}
+                  onClick={onClose}
+                >
+                  <Icon className="mr-3 h-4 w-4" />
+                  {item.name}
+                </Button>
+              </Link>
             );
           })}
         </nav>
