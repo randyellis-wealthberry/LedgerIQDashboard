@@ -9,7 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Header from "@/components/layout/header";
 import Sidebar from "@/components/layout/sidebar";
-import type { AnomalyWithEmployee } from "@shared/schema";
+import type { AnomalyWithEmployee } from "@/lib/mock-data";
 
 export default function AnomaliesPage() {
   const [sidebarOpen, setSidebarOpen] = useState(false);

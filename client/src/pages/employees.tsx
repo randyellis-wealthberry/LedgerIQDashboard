@@ -10,7 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import Header from "@/components/layout/header";
 import Sidebar from "@/components/layout/sidebar";
-import type { Employee } from "@shared/schema";
+import type { Employee } from "@/lib/mock-data";
 
 export default function EmployeesPage() {
   const [sidebarOpen, setSidebarOpen] = useState(false);

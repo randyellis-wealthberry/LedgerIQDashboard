@@ -9,7 +9,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
-import type { AnomalyWithInsights } from "@shared/schema";
+import type { AnomalyWithInsights } from "@/lib/mock-data";
 
 interface AnomalyModalProps {
   anomalyId: number;

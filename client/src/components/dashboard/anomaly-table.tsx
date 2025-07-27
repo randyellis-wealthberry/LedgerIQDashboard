@@ -8,7 +8,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
-import type { AnomalyWithEmployee } from "@shared/schema";
+import type { AnomalyWithEmployee } from "@/lib/mock-data";
 
 interface AnomalyTableProps {
   data?: AnomalyWithEmployee[];

@@ -7,7 +7,7 @@ import TrendsChart from "@/components/dashboard/trends-chart";
 import AiInsights from "@/components/dashboard/ai-insights";
 import AnomalyTable from "@/components/dashboard/anomaly-table";
 import AnomalyModal from "@/components/dashboard/anomaly-modal";
-import type { AnomalyWithEmployee } from "@shared/schema";
+import type { AnomalyWithEmployee } from "@/lib/mock-data";
 
 export default function Dashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false);

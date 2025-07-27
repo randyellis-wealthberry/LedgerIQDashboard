@@ -8,7 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/layout/header";
 import Sidebar from "@/components/layout/sidebar";
-import type { AiInsight } from "@shared/schema";
+import type { AiInsight } from "@/lib/mock-data";
 
 export default function AiInsightsPage() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
